@@ -2,6 +2,10 @@
 name = "bertrand"
 version = "0.1.0"
 edition = "2021"
+licence-file = "LICENSE"
+homepage = "https://github.com/arctic-hen7/bertrand"
+repository = "https://github.com/arctic-hen7/bertrand"
+readme = "https://github.com/arctic-hen7/bertrand"
 
 [dependencies]
 anyhow = "1"
