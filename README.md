@@ -38,10 +38,10 @@ This lets you easily create state-based demos of backend systems by linking up y
 
 ## Installation
 
-You can install Bertrand with:
+You'll need a [Rust toolchain](https://rustup.rs) to install Bertrand, and then you can run:
 
 ```
-cargo install --git https://github.com/arctic-hen7/bertrand
+cargo install bertrand
 ```
 
 ## License
