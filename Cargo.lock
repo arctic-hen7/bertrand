@@ -175,7 +175,6 @@ dependencies = [
  "anyhow",
  "axum",
  "clap",
- "serde",
  "tokio",
  "tower-http",
 ]
