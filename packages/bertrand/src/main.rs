@@ -34,6 +34,10 @@ async fn main() -> Result<(), anyhow::Error> {
         .await
         .with_context(|| "failed to read html file")?;
     let connector_script = format!("<script>\n{CONNECTOR_SCRIPT}\n</script>");
+    let connector_script = connector_script.replace(
+        "const STATE_DURATION = 1000",
+        &format!("const STATE_DURATION = {}", args.duration * 1000.0),
+    );
     let html_contents = html_contents.replace("</body>", &format!("{connector_script}\n</body>"));
 
     let app = Router::new()
@@ -50,9 +54,12 @@ async fn main() -> Result<(), anyhow::Error> {
         app
     };
 
-    let listener = tokio::net::TcpListener::bind((args.host, args.port))
+    let listener = tokio::net::TcpListener::bind((args.host.clone(), args.port))
         .await
         .with_context(|| "failed to bind to address")?;
+
+    println!("Listening on http://{}:{}", args.host, args.port);
+
     axum::serve(listener, app).await.unwrap();
     Ok(())
 }
@@ -70,6 +77,10 @@ struct Opts {
     /// The host to serve on
     #[arg(long, default_value = "0.0.0.0")]
     host: String,
+    /// The minimum duration (seconds) for which each state will be shown if many states are sent
+    /// consecutively
+    #[arg(short, long, default_value = "1")]
+    duration: f32,
 }
 
 #[derive(Clone)]
