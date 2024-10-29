@@ -3,10 +3,10 @@ name = "bertrand"
 version = "0.1.1"
 edition = "2021"
 description = "A dead-simple demo system for backend prototypes."
-license-file = "LICENSE"
+license-file = "../../LICENSE"
 homepage = "https://github.com/arctic-hen7/bertrand"
 repository = "https://github.com/arctic-hen7/bertrand"
-readme = "README.md"
+readme = "../../README.md"
 
 [dependencies]
 anyhow = "1"

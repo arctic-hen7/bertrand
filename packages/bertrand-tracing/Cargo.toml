@@ -2,10 +2,13 @@
 name = "bertrand-tracing"
 version = "0.1.0"
 edition = "2021"
+description = "A tracing subscriber for sending state changes to a Bertrand demo straight from your logs."
+license-file = "../../LICENSE"
+homepage = "https://github.com/arctic-hen7/bertrand"
+repository = "https://github.com/arctic-hen7/bertrand"
+readme = "../../README.md"
 
 [dependencies]
-reqwest = "0.12.9"
-tokio = "1.41.0"
 tracing = "0.1.40"
 tracing-subscriber = "0.3.18"
 ureq = "2.10.1"
